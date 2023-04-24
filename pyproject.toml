@@ -18,3 +18,4 @@ repository = "https://github.com/john-parton/chardetng-py"
 
 [tool.maturin]
 features = ["pyo3/extension-module"]
+module-name = "chardetng_py._rust"
