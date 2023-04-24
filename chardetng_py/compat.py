@@ -28,7 +28,7 @@ def detect(input: bytes) -> ResultDict:
     Detect the encoding of the given byte string. It may or may not be backward-compatible.
     This function is primarily used to migrate from chardet or charset_normalizer.
     """
-    
+
     return {
         "encoding": detect_codec(input).name,
         "confidence": DEFAULT_CONFIDENCE,
