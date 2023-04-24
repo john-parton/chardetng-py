@@ -1,4 +1,4 @@
-# charsetng-py
+# chardetng-py
 Simple python binding for rust charsetng library
 
 ## Usage
