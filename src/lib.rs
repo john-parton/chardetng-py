@@ -1,19 +1,16 @@
 use pyo3::prelude::*;
-use pyo3::types::PyBytes;
 use chardetng::EncodingDetector;
 
 
 #[pyfunction]
-fn decode(buffer: &PyBytes) -> (String, &str, bool) {
+fn decode(buffer: &[u8]) -> String {
     let mut detector = EncodingDetector::new();
 
-    let buffer_bytes = buffer.as_bytes();
+    detector.feed(buffer, true);
 
-    detector.feed(buffer_bytes, true);
+    let (cow, _encoding_used, _had_errors) =  detector.guess(None, true).decode(&buffer);
 
-    let (cow, encoding_used, had_errors) =  detector.guess(None, true).decode(&buffer_bytes);
-
-    (cow.to_string(), encoding_used.name(), had_errors)
+    cow.to_string()
 }
 
 

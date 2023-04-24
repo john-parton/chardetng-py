@@ -10,6 +10,7 @@ from chardetng_py import decode
 
 import charset_normalizer
 import chardet
+import rs_chardet
 
 T = typing.TypeVar("T")
 P = typing.ParamSpec("P")
@@ -23,13 +24,20 @@ def test_chardet(data):
 def test_charset_normalizer(data):
     for datum in data:
         d = charset_normalizer.detect(datum)
-        print(d["encoding"])
-
         datum.decode(d["encoding"])
 
 def test_chardetng_py(data):
     for datum in data:
-        __, encoding, __ = decode(datum)
+        decode(datum)
+
+def test_chardetng_py_info(data):
+    for datum in data:
+        __, encoding, __ = decode_info(datum)
+
+def test_rs_chardet(data):
+    for datum in data:
+        codec = rs_chardet.detect_codec(datum)
+        codec.decode(datum)
 
 
 def coro(f: typing.Callable[P, typing.Awaitable[T]]) -> typing.Callable[P, T]:
@@ -42,8 +50,8 @@ def coro(f: typing.Callable[P, typing.Awaitable[T]]) -> typing.Callable[P, T]:
 
 @click.command()
 @click.option("--input-directory", "-i", type=click.Path(path_type=Path), required=True)
-@click.option("--sample-size", "-k", type=int, help="Number of files to read into memory for benchmarks.", default=10)
-@click.option("--iterations", "-n", type=int, help="Number of iterations of timeit to run.", default=10)
+@click.option("--sample-size", "-k", type=int, help="Number of files to read into memory for benchmarks.", default=200)
+@click.option("--iterations", "-n", type=int, help="Number of iterations of timeit to run.", default=12)
 @coro
 async def main(*, input_directory: Path, sample_size: int, iterations: int):
 
@@ -65,17 +73,18 @@ async def main(*, input_directory: Path, sample_size: int, iterations: int):
     print("Done fetching data")
 
     test_functions = [
-        test_chardet,
+        # test_chardet,
         test_chardetng_py,
-        test_charset_normalizer,
+        # test_charset_normalizer,
+        test_rs_chardet,
     ]
 
     random.shuffle(test_functions)
 
     for test_function in test_functions:
-        loops, total_time = Timer("test_func(data)", globals={"test_func": test_function, "data": data}).autorange()
+        total_time = Timer("test_func(data)", globals={"test_func": test_function, "data": data}).timeit(number=iterations)
 
-        print(test_function.__name__, loops, total_time / loops)
+        print(test_function.__name__, iterations, total_time / iterations)
 
 if __name__ == "__main__":
     main()

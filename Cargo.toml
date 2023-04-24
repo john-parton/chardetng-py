@@ -10,5 +10,10 @@ crate-type = ["cdylib"]
 
 [dependencies]
 chardetng = "0.1.17"
-encoding_rs = { version = "0.8.32" }
+encoding_rs = { version = "0.8.32", features = ["simd-accel"] }
 pyo3 = "0.18.1"
+
+[profile.release]
+lto = true
+codegen-units = 1
+panic = "abort"
