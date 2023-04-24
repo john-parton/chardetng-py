@@ -10,7 +10,11 @@ classifiers = [
     "Programming Language :: Python :: Implementation :: CPython",
     "Programming Language :: Python :: Implementation :: PyPy",
 ]
+readme = "README.md"
 
+[project.urls]
+homepage = "https://github.com/john-parton/chardetng-py"
+repository = "https://github.com/john-parton/chardetng-py"
 
 [tool.maturin]
 features = ["pyo3/extension-module"]
