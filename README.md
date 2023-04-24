@@ -20,4 +20,4 @@ In my basic testing, chardetng is about 40-80 times faster than `chardet` or `ch
 
 ## Accuracy
 
-`TODO`
+I chardetng and charset_normalizer agree about 70% of the time with an ML dataset I'm working on. The 30% of the time when they disagree, chardetng's encoding is almost always the correct one. [Blog post by Henri Sivonen, Mozilla Foundation](https://hsivonen.fi/chardetng/)
