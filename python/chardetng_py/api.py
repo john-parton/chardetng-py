@@ -31,7 +31,7 @@ def detect_codec(byte_str: typing.Union[bytes, bytearray]) -> codecs.CodecInfo:
 
 
 def decode(byte_str: typing.Union[bytes, bytearray]) -> str:
-    r"""Detect the encoding of byte_str return the decoded string.
+    r"""Detect the encoding of byte_str and return the decoded string.
 
     Parameters
     ----------

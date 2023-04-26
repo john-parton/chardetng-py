@@ -4,7 +4,7 @@ use pyo3::prelude::*;
 /// detect(byte_str, /)
 /// --
 ///
-/// Detect the encoding of byte_str, and decode.
+/// Detect the encoding of byte_str and return the encoding.
 ///
 ///     Parameters
 ///     ----------
