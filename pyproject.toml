@@ -27,9 +27,9 @@ Changelog = "https://github.com/john-parton/chardetng-py/releases"
 
 [tool.poetry.dependencies]
 python = "^3.8"
-numpydoc = "^1.5.0"
 
 [tool.poetry.dev-dependencies]
+numpydoc = "^1.5.0"
 maturin = "^0.14.17"
 Pygments = ">=2.10.0"
 black = ">=21.10b0"
