@@ -1,4 +1,4 @@
-# chardetng Python Module
+# chardetng_py
 
 [![PyPI](https://img.shields.io/pypi/v/chardetng-py.svg)][pypi_]
 [![Status](https://img.shields.io/pypi/status/chardetng-py.svg)][status]
@@ -7,7 +7,6 @@
 
 [![Read the documentation at https://chardetng-py.readthedocs.io/](https://img.shields.io/readthedocs/chardetng-py/latest.svg?label=Read%20the%20Docs)][read the docs]
 [![Tests](https://github.com/john-parton/chardetng-py/workflows/Tests/badge.svg)][tests]
-[![Codecov](https://codecov.io/gh/john-parton/chardetng-py/branch/main/graph/badge.svg)][codecov]
 
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)][pre-commit]
 [![Black](https://img.shields.io/badge/code%20style-black-000000.svg)][black]
@@ -23,15 +22,11 @@
 
 ## Features
 
-- TODO
-
-## Requirements
-
-- TODO
+Python binding for the [chardetng](https://github.com/hsivonen/chardetng) character encoding detector.
 
 ## Installation
 
-You can install _chardetng Python Module_ via [pip] from [PyPI]:
+You can install _chardetng_py_ via [pip] from [PyPI]:
 
 ```console
 $ pip install chardetng-py
@@ -72,7 +67,7 @@ To learn more, see the [Contributor Guide].
 ## License
 
 Distributed under the terms of the [MIT license][license],
-_chardetng Python Module_ is free and open source software.
+_chardetng_py_ is free and open source software.
 
 ## Issues
 
