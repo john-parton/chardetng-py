@@ -1,0 +1,14 @@
+{
+  "_output_dir": "/home/john/Code/tmp",
+  "_template": "gh:cjolowicz/cookiecutter-hypermodern-python",
+  "author": "John Parton",
+  "copyright_year": "2023",
+  "development_status": "Development Status :: 4 - Beta",
+  "email": "john.parton.iv@gmail.com",
+  "friendly_name": "chardetng Python Module",
+  "github_user": "john-parton",
+  "license": "MIT",
+  "package_name": "chardetng_py",
+  "project_name": "chardetng-py",
+  "version": "0.1.0"
+}
