@@ -10,6 +10,7 @@ crate-type = ["cdylib"]
 
 [dependencies]
 chardetng = "0.1.17"
+encoding_rs = "0.8.32"
 pyo3 = "0.18.3"
 
 [profile.release]
