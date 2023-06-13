@@ -5,7 +5,6 @@ copyright = "2023, John Parton"  # noqa: A001
 extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.napoleon",
-    "sphinx_click",
     "myst_parser",
     "numpydoc",
 ]

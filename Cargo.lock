@@ -33,7 +33,7 @@ dependencies = [
 
 [[package]]
 name = "chardetng_py"
-version = "0.1.3"
+version = "0.1.4"
 dependencies = [
  "chardetng",
  "pyo3",

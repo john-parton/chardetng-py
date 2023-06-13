@@ -26,11 +26,20 @@ DEFAULT_CONFIDENCE: typing.Final[float] = 0.99
 
 
 def detect(byte_str: typing.Union[bytes, bytearray]) -> ResultDict:
-    """Chardet legacy method.
+    """Detect the encoding of a string and return additional information.
 
     Detect the encoding of the given byte string. It may or may not be
     backward-compatible.
     This function is primarily used to migrate from chardet or charset_normalizer.
+
+    Parameters
+    ----------
+    byte_str : bytes or bytearray
+        Input buffer to detect the encoding of.
+
+    Returns
+    -------
+        dict.
     """
     return {
         "encoding": detect_codec(byte_str).name,
