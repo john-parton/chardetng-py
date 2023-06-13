@@ -30,7 +30,7 @@ python = "^3.8"
 
 [tool.poetry.dev-dependencies]
 numpydoc = "^1.5.0"
-maturin = "^0.14.17"
+maturin = "^1.1.0"
 Pygments = ">=2.10.0"
 black = ">=21.10b0"
 coverage = {extras = ["toml"], version = ">=6.2"}
@@ -46,7 +46,7 @@ sphinx-autobuild = ">=2021.3.14"
 typeguard = ">=2.13.3"
 xdoctest = {extras = ["colors"], version = ">=0.15.10"}
 myst-parser = {version = ">=0.16.1"}
-ruff = "^0.0.262"
+ruff = "^0.0.272"
 
 [tool.coverage.paths]
 source = ["src", "*/site-packages"]
