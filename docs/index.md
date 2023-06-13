@@ -16,6 +16,7 @@ maxdepth: 1
 
 usage
 reference
+class_reference
 contributing
 Code of Conduct <codeofconduct>
 License <license>

@@ -7,7 +7,7 @@ chardetng_py module.
 import codecs
 import typing
 
-from chardetng_py._rust import detect
+from chardetng_py._rust import EncodingDetector
 
 ALIASES: dict[str, str] = {
     "windows-874": "cp874",
@@ -22,6 +22,33 @@ References
 https://docs.python.org/3/library/codecs.html#standard-encodings
 https://encoding.spec.whatwg.org/#legacy-single-byte-encodings
 """
+
+
+def detect(byte_str: typing.Union[bytes, bytearray]) -> str:
+    """Detect the encoding of byte_str and return the encoding.
+
+    Parameters
+    ----------
+    byte_str : bytes or bytearray
+        Input buffer to decode.
+
+    Returns
+    -------
+        str
+    The decoded string.
+    """
+    encoding_detector = EncodingDetector()
+    encoding_detector.feed(byte_str, last=True)
+
+    encoding: str = encoding_detector.guess(tld=None, allow_utf8=True)
+
+    # chardetng uses 'windows-874' as an encoding, which Python does not understand
+    # I believe that windows-874 and cp874 are basically the same encoding
+    if encoding in ALIASES:
+        # TODO Log/warn?
+        return ALIASES[encoding]
+
+    return encoding
 
 
 def detect_codec(byte_str: typing.Union[bytes, bytearray]) -> codecs.CodecInfo:
@@ -39,9 +66,12 @@ def detect_codec(byte_str: typing.Union[bytes, bytearray]) -> codecs.CodecInfo:
     'cp1254'
 
     """
-    # I'm not sure chardetng will return a value here that python doesn't understand
-    # I'm pretty sure it *won't*, but if it does, this will raise codecs.LookpError
-    return codecs.lookup(detect(byte_str))
+    encoding_detector = EncodingDetector()
+    encoding_detector.feed(byte_str, last=True)
+
+    encoding_detector.guess(tld=None, allow_utf8=True)
+
+    return codecs.lookup(detect)
 
 
 def decode(
