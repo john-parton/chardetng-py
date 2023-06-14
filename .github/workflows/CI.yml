@@ -46,7 +46,9 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        target: [x64, x86]
+        # Disable x86, not working on Github currently
+        # target: [x64, x86]
+        target: [x64]
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
