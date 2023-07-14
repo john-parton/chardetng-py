@@ -36,4 +36,4 @@ and `False` if only ASCII has been seen so far.
 ## Raises
 
 pyo3_runtime.PanicException
-If this method has previously been called with `last` set to `true`.
+If this method has previously been called with `last` set to `True`.

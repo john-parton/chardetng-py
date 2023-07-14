@@ -23,9 +23,9 @@ detection. Such reliance would make the Web Platform more brittle.
 
 ## Returns
 
-str
+encoding: str
 The guessed encoding.
-bool
+higher_score: bool
 Whether the guessed encoding had a higher score than at least
 one other candidate. If this value is `False`, the guessed encoding
 is likely to be wrong.
