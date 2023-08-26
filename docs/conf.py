@@ -6,7 +6,6 @@ extensions = [
     "sphinx_toolbox.more_autodoc",
     "sphinx.ext.autodoc",
     "sphinx.ext.napoleon",
-    "myst_parser",
     "numpydoc",
 ]
 autodoc_typehints = "description"

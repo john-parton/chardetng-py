@@ -27,7 +27,6 @@ Changelog = "https://github.com/john-parton/chardetng-py/releases"
 
 [tool.poetry.dependencies]
 python = "^3.8"
-myst-parser = "^2.0.0"
 
 [tool.poetry.dev-dependencies]
 numpydoc = "^1.5.0"
