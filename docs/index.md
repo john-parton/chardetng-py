@@ -15,8 +15,10 @@ maxdepth: 1
 ---
 
 usage
+shortcuts
 reference
 class_reference
+recipes
 contributing
 Code of Conduct <codeofconduct>
 License <license>

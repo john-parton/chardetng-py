@@ -26,7 +26,7 @@ Python binding for the [chardetng](https://github.com/hsivonen/chardetng) charac
 
 ## Installation
 
-You can install _chardetng_py_ via [pip] from [PyPI]:
+You can install `chardetng_py` via [pip] from [PyPI]:
 
 ```console
 $ pip install chardetng-py
@@ -38,25 +38,23 @@ Or via poetry:
 $ poetry add chardetng-py
 ```
 
-## Usage
+## Quick Start
 
-The easiest way to get started is to use the `decode` method.
+The easiest way to get started is to use the :meth:`detect` method.
 
 ```python
-
->>> import chardetng_py
->>> chardetng_py.decode(b'Jakby r\xeaka Boga')
-'Jakby rêka Boga'
+>>> from chardetng_py import detect
+>>> detect(b'Jakby r\xeaka Boga')
+'windows-1254'
 ```
 
 There is also a `detect` method available for compatability with `chardet`,
 but it will always report `None` for the language and a confidence value of `0.99`.
 
 ```python
-
 >>> from chardetng_py.compat import detect
 >>> detect(b'Jakby r\xeaka Boga')
-{'encoding': 'cp1254', 'confidence': 0.99, 'language': None}
+{'encoding': 'windows-1254', 'confidence': 0.99, 'language': None}
 ```
 
 ## Contributing
@@ -67,7 +65,7 @@ To learn more, see the [Contributor Guide].
 ## License
 
 Distributed under the terms of the [MIT license][license],
-_chardetng_py_ is free and open source software.
+`chardetng_py` is free and open source software.
 
 ## Issues
 
@@ -76,11 +74,7 @@ please [file an issue] along with a detailed description.
 
 ## Credits
 
-This project was generated from [@cjolowicz]'s [Hypermodern Python Cookiecutter] template.
-
-[@cjolowicz]: https://github.com/cjolowicz
 [pypi]: https://pypi.org/
-[hypermodern python cookiecutter]: https://github.com/cjolowicz/cookiecutter-hypermodern-python
 [file an issue]: https://github.com/john-parton/chardetng-py/issues
 [pip]: https://pip.pypa.io/
 

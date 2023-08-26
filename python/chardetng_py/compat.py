@@ -1,48 +1,45 @@
 """Functions to aid in migrating from chardet or charset_normalizer to chardetng_py."""
 
-import typing
+import sys
+from typing import Final, Union
 
-from chardetng_py.api import detect_codec
+from chardetng_py.shortcuts import detect as _detect
 
-if typing.TYPE_CHECKING:
-    # TypedDict was introduced in Python 3.8.
-    #
-    # TODO: Remove the else block and TYPE_CHECKING check when dropping support
-    # for Python 3.7.
-
-    class ResultDict(typing.TypedDict):
-        """Return value for detect compatability function."""
-
-        encoding: typing.Optional[str]
-        confidence: float
-        language: typing.Optional[str]
-
+# Older versions of Python have a TypedDict with limited functionality
+# This helps documentations tools and type checkers
+if sys.version_info >= (3, 11):
+    from typing import TypedDict
 else:
-    ResultDict = dict
+    from typing_extensions import TypedDict
+
 
 # chardetng does not return a confidence value
 # This is the value which is unconditionally returned
-DEFAULT_CONFIDENCE: typing.Final[float] = 0.99
+DEFAULT_CONFIDENCE: Final[float] = 0.99
 
 
-def detect(byte_str: typing.Union[bytes, bytearray]) -> ResultDict:
+# TypedDict was introduced in Python 3.8.
+class ResultDict(TypedDict):
+    """Return value for detect compatability function."""
+
+    encoding: str
+    confidence: float
+    language: None
+
+
+def detect(byte_str: Union[bytes, bytearray]) -> ResultDict:
     """Detect the encoding of a string and return additional information.
 
-    Detect the encoding of the given byte string. It may or may not be
-    backward-compatible.
-    This function is primarily used to migrate from chardet or charset_normalizer.
+    Detect the encoding of the given byte string. Language detect is not implemented
+    and will always return :code:`None`. Confidence is always :code:`0.99`.
 
     Parameters
     ----------
-    byte_str : bytes or bytearray
+    byte_str : :code:`bytes` or :code:`bytearray`
         Input buffer to detect the encoding of.
-
-    Returns
-    -------
-        dict.
     """
     return {
-        "encoding": detect_codec(byte_str).name,
+        "encoding": _detect(byte_str),
         "confidence": DEFAULT_CONFIDENCE,
         # chardetng does not return a language
         "language": None,

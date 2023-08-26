@@ -24,7 +24,6 @@ ASCII has been seen so far.
 ## Parameters
 
 buffer : bytes or bytearray
-
 last : bool
 
 ## Returns

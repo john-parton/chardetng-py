@@ -18,7 +18,7 @@ impl EncodingDetectorWrapper {
     }
 
     #[doc = include_str!("../chardetng_docs/feed.md")]
-    #[pyo3(signature=(buffer, /, last))]
+    #[pyo3(signature=(buffer, /, *, last))]
     fn feed(&mut self, buffer: Vec<u8>, last: bool) -> bool {
         self.encoding_detector.feed(&buffer, last)
     }
@@ -44,22 +44,8 @@ impl EncodingDetectorWrapper {
 }
 
 
-
-
-#[pyfunction]
-#[pyo3(signature=(buffer, /))]
-fn detect(buffer: Vec<u8>) -> &'static str {
-    let mut detector = EncodingDetector::new();
-
-    detector.feed(&buffer, true);
-
-    detector.guess(None, false).name()
-}
-
-
 #[pymodule]
-fn _rust(_py: Python, m: &PyModule) -> PyResult<()> {
+fn detector(_py: Python, m: &PyModule) -> PyResult<()> {
     m.add_class::<EncodingDetectorWrapper>()?;
-    m.add_function(wrap_pyfunction!(detect, m)?)?;
     Ok(())
 }

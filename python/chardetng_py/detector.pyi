@@ -1,9 +1,16 @@
+# noqa: D100
 import typing
 
 Buffer: typing.TypeAlias = bytes | bytearray
 
-class EncodingDetector:
-    def feed(self: typing.Self, buffer: Buffer, /, last: bool) -> bool: ...
+class EncodingDetector:  # noqa: D101
+    def feed(
+        self: typing.Self,
+        buffer: Buffer,
+        /,
+        *,
+        last: bool,
+    ) -> bool: ...
     def guess(
         self: typing.Self,
         *,

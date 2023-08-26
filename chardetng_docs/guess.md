@@ -12,7 +12,6 @@ the label is an internationalized top-level domain name, it must be
 provided in its Punycode form. If the TLD that the stream was loaded
 from is unavalable, `None` may be passed instead, which is equivalent
 to passing `b"com"`.
-
 allow_utf8 : bool
 If set to `False`, the return value of
 this method won't be `"UTF-8"`. When performing detection
