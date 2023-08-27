@@ -17,7 +17,12 @@ https://encoding.spec.whatwg.org/#legacy-single-byte-encodings
 """
 
 
-def detect(byte_str: Union[bytes, bytearray], *, allow_utf8: bool = False) -> str:
+def detect(
+    byte_str: Union[bytes, bytearray],
+    *,
+    allow_utf8: bool = False,
+    tld: Union[bytes, bytearray, None] = None,
+) -> str:
     """Detect the encoding of :code:`byte_str`.
 
     Returned encoding is suitable for use with :code:`str.decode`.
@@ -34,11 +39,17 @@ def detect(byte_str: Union[bytes, bytearray], *, allow_utf8: bool = False) -> st
         unless the user has taken a specific contextual action to request an
         override. This way, Web developers cannot start depending on UTF-8
         detection. Such reliance would make the Web Platform more brittle.
+    tld : :code:`bytes` or :code:`bytearray` or :code:`None`
+        If :code:`tld` contains non-ASCII, period, or upper-case letters. The exception
+        condition is intentionally limited to signs of failing to extract the
+        label correctly, failing to provide it in its Punycode form, and failure
+        to lower-case it. Full DNS label validation is intentionally not performed
+        to avoid panics when the reality doesn't match the specs.
     """
     encoding_detector = EncodingDetector()
     encoding_detector.feed(byte_str, last=True)
 
-    encoding: str = encoding_detector.guess(tld=None, allow_utf8=allow_utf8)
+    encoding: str = encoding_detector.guess(tld=tld, allow_utf8=allow_utf8)
 
     # chardetng uses 'windows-874' as an encoding, which Python does not understand
     # I believe that windows-874 and cp874 are basically the same encoding

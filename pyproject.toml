@@ -10,7 +10,7 @@ readme = "README.md"
 
 [tool.poetry]
 name = "chardetng-py"
-version = "0.3.0"
+version = "0.3.1"
 description = "chardetng Python Module"
 authors = ["John Parton <john.parton.iv@gmail.com>"]
 license = "MIT"
