@@ -30,7 +30,7 @@ Compatability is a _feature_ of `chardetng_py`. The goal is to support as many p
 
 `chardetng_py` supports Python 3.8, 3.9, 3.10, 3.11, and 3.12 on Linux, macOS 10.7, macOS 11.0, and Windows. Additionally, PyPy versions 3.8, 3.9, and 3.10 are supported on Linux.
 
-The x86, x86_64, s390x, ARMv7l, and AArch64 architectures are supported on Linux for both cPython and PyPy. The AArch64 and x86_64 architectures are supported on macOS. The x86_64 architecture are supported on Windows.
+The x86, x86_64, s390x, ARMv7l, and AArch64 architectures are supported on Linux for both cPython and PyPy. The AArch64 and x86_64 architectures are supported on macOS. The x86_64 architecture is supported on Windows.
 
 In short, if you can install Python 3.8, you should be able to install `chardetng_py`.
 
