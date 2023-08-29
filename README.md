@@ -24,6 +24,20 @@
 
 Python binding for the [chardetng](https://github.com/hsivonen/chardetng) character encoding detector.
 
+## Platform and Architecture Support
+
+Compatability is a _feature_ of `chardetng_py`. The goal is to support as many platforms and architectures as possible.
+
+`chardetng_py` supports Python 3.8, 3.9, 3.10, 3.11, and 3.12 on Linux, macOS 10.7, macOS 11.0, and Windows. Additionally, PyPy versions 3.8, 3.9, and 3.10 are supported on Linux.
+
+The x86, x86_64, s390x, ARMv7l, and AArch64 architectures are supported on Linux for both cPython and PyPy. The AArch64 and x86_64 architectures are supported on macOS. The x86_64 architecture are supported on Windows.
+
+In short, if you can install Python 3.8, you should be able to install `chardetng_py`.
+
+If there is a platform or architecture that you would like to see supported, please [file an issue].
+
+This support is largely due to the wonderful [maturin](https://github.com/PyO3/maturin) project.
+
 ## Installation
 
 You can install `chardetng_py` via [pip] from [PyPI]:
