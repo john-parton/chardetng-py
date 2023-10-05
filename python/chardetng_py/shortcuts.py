@@ -1,20 +1,8 @@
 """Functions for dealing with byte strings of unknown encoding."""
 
-from typing import Dict, Final, Union
+from typing import Union
 
 from chardetng_py.detector import EncodingDetector
-
-ALIASES: Final[Dict[str, str]] = {
-    "windows-874": "cp874",
-}
-"""Python prefers to use "cpXXX" for legacy encodings, while :code:`encoding_rs`
-and :code:`chardetng` use whatwg names.
-
-References
-----------
-https://docs.python.org/3/library/codecs.html#standard-encodings
-https://encoding.spec.whatwg.org/#legacy-single-byte-encodings
-"""
 
 
 def detect(
@@ -49,12 +37,4 @@ def detect(
     encoding_detector = EncodingDetector()
     encoding_detector.feed(byte_str, last=True)
 
-    encoding: str = encoding_detector.guess(tld=tld, allow_utf8=allow_utf8)
-
-    # chardetng uses 'windows-874' as an encoding, which Python does not understand
-    # I believe that windows-874 and cp874 are basically the same encoding
-    if encoding in ALIASES:
-        # TODO Log/warn?
-        return ALIASES[encoding]
-
-    return encoding
+    return encoding_detector.guess(tld=tld, allow_utf8=allow_utf8)
