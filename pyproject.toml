@@ -8,6 +8,11 @@ classifiers = [
 ]
 readme = "README.md"
 
+[project.urls]
+homepage = "https://github.com/john-parton/chardetng-py"
+documentation = "https://chardetng-py.readthedocs.io"
+changelog = "https://github.com/john-parton/chardetng-py/releases"
+
 [tool.poetry]
 name = "chardetng-py"
 version = "0.3.1"
