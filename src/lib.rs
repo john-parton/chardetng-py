@@ -1,6 +1,21 @@
 use chardetng::EncodingDetector;
 use pyo3::prelude::*;
 
+// See https://github.com/john-parton/chardetng-py/issues/11
+// Python prefers to use "cpXXX" for legacy encodings, while :code:`encoding_rs`
+// and :code:`chardetng` use whatwg names.
+
+// References
+// ----------
+// https://docs.python.org/3/library/codecs.html#standard-encodings
+// https://encoding.spec.whatwg.org/#legacy-single-byte-encodings
+fn _fix_encoding_name(encoding: &str) -> &str {
+    if encoding == "windows-874" {
+        "cp874"
+    } else {
+        encoding
+    }
+}
 
 #[doc = include_str!("../chardetng_docs/EncodingDetector.md")]
 #[pyclass(name="EncodingDetector")]
@@ -27,7 +42,9 @@ impl EncodingDetectorWrapper {
     #[pyo3(signature=(*, tld, allow_utf8))]
     fn guess(&self, tld: Option<&[u8]>, allow_utf8: bool) -> &'static str {
 
-        self.encoding_detector.guess(tld, allow_utf8).name()
+        _fix_encoding_name(
+            self.encoding_detector.guess(tld, allow_utf8).name()
+        )
     }
 
     #[doc = include_str!("../chardetng_docs/guess_assess.md")]
@@ -37,7 +54,7 @@ impl EncodingDetectorWrapper {
         let (encoding, higher_score) = self.encoding_detector.guess_assess(tld, allow_utf8);
 
         (
-            encoding.name(),
+            _fix_encoding_name(encoding.name()),
             higher_score
         )
     }
