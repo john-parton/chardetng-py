@@ -10,7 +10,7 @@ crate-type = ["cdylib"]
 
 [dependencies]
 chardetng = "0.1.17"
-pyo3 = "0.18.3"
+pyo3 = "0.19.2"
 
 [profile.release]
 lto = true
