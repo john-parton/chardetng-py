@@ -24,6 +24,10 @@
 
 Python binding for the [chardetng](https://github.com/hsivonen/chardetng) character encoding detector.
 
+## Documentation
+
+Documentation for the latest release can be found on [Read the Docs](https://chardetng-py.readthedocs.io/en/latest/).
+
 ## Platform and Architecture Support
 
 Compatability is a _feature_ of `chardetng_py`. The goal is to support as many platforms and architectures as possible.
