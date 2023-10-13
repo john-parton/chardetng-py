@@ -9,7 +9,7 @@ def detect(
     byte_str: bytes | bytearray,
     *,
     allow_utf8: bool = False,
-    tld: bytes | (bytearray | None) = None,
+    tld: bytes | bytearray | None = None,
 ) -> str:
     """Detect the encoding of :code:`byte_str`.
 
