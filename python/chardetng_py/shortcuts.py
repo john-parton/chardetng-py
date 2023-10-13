@@ -1,19 +1,17 @@
 """Functions for dealing with byte strings of unknown encoding."""
 
-from typing import Union
+from __future__ import annotations
 
 from chardetng_py.detector import EncodingDetector
 
 
 def detect(
-    byte_str: Union[bytes, bytearray],
+    byte_str: bytes | bytearray,
     *,
     allow_utf8: bool = False,
-    tld: Union[bytes, bytearray, None] = None,
+    tld: bytes | (bytearray | None) = None,
 ) -> str:
     """Detect the encoding of :code:`byte_str`.
-
-    Returned encoding is suitable for use with :code:`str.decode`.
 
     Parameters
     ----------
@@ -33,6 +31,11 @@ def detect(
         label correctly, failing to provide it in its Punycode form, and failure
         to lower-case it. Full DNS label validation is intentionally not performed
         to avoid panics when the reality doesn't match the specs.
+
+    Returns
+    -------
+    :code:`str`
+    The encoding of :code:`byte_str`, suitable for use with :code:`str.decode`.
     """
     encoding_detector = EncodingDetector()
     encoding_detector.feed(byte_str, last=True)

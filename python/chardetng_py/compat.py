@@ -1,12 +1,12 @@
 """Functions to aid in migrating from chardet or charset_normalizer to chardetng_py."""
 
+from __future__ import annotations
+
 import sys
-from typing import Union
 
 from chardetng_py.detector import EncodingDetector
-from chardetng_py.shortcuts import detect as _detect
 
-from .constants import ALIASES, CONFIDENCE_HIGH, CONFIDENCE_LOW
+from .constants import CONFIDENCE_HIGH, CONFIDENCE_LOW
 
 # Older versions of Python have a TypedDict with limited functionality
 # This helps documentations tools and type checkers
@@ -25,11 +25,13 @@ class ResultDict(TypedDict):
     language: None
 
 
-def detect(byte_str: Union[bytes, bytearray]) -> ResultDict:
+def detect(byte_str: bytes | bytearray) -> ResultDict:
     """Detect the encoding of a string and return additional information.
 
     Detect the encoding of the given byte string. Language detect is not implemented
-    and will always return :code:`None`. Confidence is always :code:`0.99`.
+    and will always return :code:`None`. Confidence will be either :code:`0.99` or
+    :code:`0.01` depending on if the encoding is detected with high confidence or low
+    confidence.
 
     Parameters
     ----------
@@ -41,14 +43,8 @@ def detect(byte_str: Union[bytes, bytearray]) -> ResultDict:
 
     encoding, higher_score = encoding_detector.guess_assess(tld=None, allow_utf8=False)
 
-    # chardetng uses 'windows-874' as an encoding, which Python does not understand
-    # I believe that windows-874 and cp874 are basically the same encoding
-    if encoding in ALIASES:
-        # TODO Log/warn?
-        encoding = ALIASES[encoding]
-
     return {
-        "encoding": _detect(byte_str),
+        "encoding": encoding,
         "confidence": CONFIDENCE_HIGH if higher_score else CONFIDENCE_LOW,
         # chardetng does not return a language
         "language": None,
