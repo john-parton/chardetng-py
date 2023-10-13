@@ -87,7 +87,7 @@ select = ["ALL"]
 max-complexity = 10
 
 [build-system]
-requires = ["maturin>=0.14,<0.15"]
+requires = ["maturin>=1,<2"]
 build-backend = "maturin"
 
 [tool.maturin]
