@@ -13,8 +13,9 @@ The easiest way to get started is to use the ``detect`` method.
    'windows-1254'
 
 There is also a ``detect`` method available for compatability with
-``chardet``, but it will always report ``None`` for the language and a
-confidence value of ``0.99``.
+``chardet``, but it will always report ``None`` for the language. The confidence
+value will either be ``0.99`` or ``0.01`` depending on whether chardetng returns
+a "high" or "low" confidence flag.
 
 .. code:: python
 
