@@ -1419,13 +1419,13 @@ Sphinx = "*"
 
 [[package]]
 name = "sphinx-tabs"
-version = "3.4.1"
+version = "3.4.4"
 description = "Tabbed views for Sphinx"
 optional = false
 python-versions = "~=3.7"
 files = [
-    {file = "sphinx-tabs-3.4.1.tar.gz", hash = "sha256:d2a09f9e8316e400d57503f6df1c78005fdde220e5af589cc79d493159e1b832"},
-    {file = "sphinx_tabs-3.4.1-py3-none-any.whl", hash = "sha256:7cea8942aeccc5d01a995789c01804b787334b55927f29b36ba16ed1e7cb27c6"},
+    {file = "sphinx-tabs-3.4.4.tar.gz", hash = "sha256:f1b72c4f23d1ba9cdcaf880fd883524bc70689f561b9785719b8b3c3c5ed0aca"},
+    {file = "sphinx_tabs-3.4.4-py3-none-any.whl", hash = "sha256:85939b689a0b0a24bf0da418b9acf14b0b0fca7a7a5cd35461ee452a2d4e716b"},
 ]
 
 [package.dependencies]
@@ -1435,7 +1435,7 @@ sphinx = "*"
 
 [package.extras]
 code-style = ["pre-commit (==2.13.0)"]
-testing = ["bs4", "coverage", "pygments", "pytest (>=7.1,<8)", "pytest-cov", "pytest-regressions", "rinohtype", "sphinx-testing"]
+testing = ["bs4", "coverage", "pygments", "pytest (>=7.1,<8)", "pytest-cov", "pytest-regressions", "rinohtype"]
 
 [[package]]
 name = "sphinx-toolbox"
