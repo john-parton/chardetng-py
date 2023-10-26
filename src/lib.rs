@@ -10,10 +10,10 @@ use pyo3::prelude::*;
 // https://docs.python.org/3/library/codecs.html#standard-encodings
 // https://encoding.spec.whatwg.org/#legacy-single-byte-encodings
 fn _fix_encoding_name(encoding: &str) -> &str {
-    if encoding == "windows-874" {
-        "cp874"
-    } else {
-        encoding
+    match encoding {
+        "windows-874" => "cp874",
+        "GBK" => "gb18030",
+        _ => encoding
     }
 }
 
