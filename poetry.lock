@@ -401,13 +401,13 @@ files = [
 
 [[package]]
 name = "dict2css"
-version = "0.3.0"
+version = "0.3.0.post1"
 description = "A μ-library for constructing cascading style sheets from Python dictionaries."
 optional = false
 python-versions = ">=3.6"
 files = [
-    {file = "dict2css-0.3.0-py3-none-any.whl", hash = "sha256:ef934ce73a225fdd5f811b484fe9e2dd768f7ef14a89fc8f4eb5672597131d00"},
-    {file = "dict2css-0.3.0.tar.gz", hash = "sha256:1e8b1bf580dca2083198f88a60ec88c878a8829d760dfe45483ef80fe2905117"},
+    {file = "dict2css-0.3.0.post1-py3-none-any.whl", hash = "sha256:f006a6b774c3e31869015122ae82c491fd25e7de4a75607a62aa3e798f837e0d"},
+    {file = "dict2css-0.3.0.post1.tar.gz", hash = "sha256:89c544c21c4ca7472c3fffb9d37d3d926f606329afdb751dc1de67a411b70719"},
 ]
 
 [package.dependencies]
