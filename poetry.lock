@@ -34,13 +34,13 @@ limiter = ["cachecontrol[filecache] (>=0.12.6)", "lockfile (>=0.12.2)"]
 
 [[package]]
 name = "apeye-core"
-version = "1.1.4"
+version = "1.1.5"
 description = "Core (offline) functionality for the apeye library."
 optional = false
 python-versions = ">=3.6.1"
 files = [
-    {file = "apeye_core-1.1.4-py3-none-any.whl", hash = "sha256:084bc696448d3ac428fece41c1f2eb08fa9d9ce1d1b2f4d43187e3def4528a60"},
-    {file = "apeye_core-1.1.4.tar.gz", hash = "sha256:72bb89fed3baa647cb81aa28e1d851787edcbf9573853b5d2b5f87c02f50eaf5"},
+    {file = "apeye_core-1.1.5-py3-none-any.whl", hash = "sha256:dc27a93f8c9e246b3b238c5ea51edf6115ab2618ef029b9f2d9a190ec8228fbf"},
+    {file = "apeye_core-1.1.5.tar.gz", hash = "sha256:5de72ed3d00cc9b20fea55e54b7ab8f5ef8500eb33a5368bc162a5585e238a55"},
 ]
 
 [package.dependencies]
