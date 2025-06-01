@@ -13,7 +13,7 @@ fn _fix_encoding_name(encoding: &str) -> &str {
     match encoding.to_lowercase().as_str() {
         "windows-874" => "cp874",
         "gbk" => "gb18030",
-        _ => encoding
+        _ => encoding,
     }
 }
 
@@ -54,7 +54,7 @@ impl EncodingDetectorWrapper {
 }
 
 #[pymodule]
-fn detector(_py: Python, m: &PyModule) -> PyResult<()> {
+fn detector(_py: Python<'_>, m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add_class::<EncodingDetectorWrapper>()?;
     Ok(())
 }
