@@ -54,7 +54,7 @@ impl EncodingDetectorWrapper {
 }
 
 #[pymodule]
-fn detector(_py: Python, m: &PyModule) -> PyResult<()> {
+fn detector(_py: Python<'_>, m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add_class::<EncodingDetectorWrapper>()?;
     Ok(())
 }
