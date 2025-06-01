@@ -13,7 +13,7 @@ fn _fix_encoding_name(encoding: &str) -> &str {
     match encoding.to_lowercase().as_str() {
         "windows-874" => "cp874",
         "gbk" => "gb18030",
-        _ => encoding
+        _ => encoding,
     }
 }
 
