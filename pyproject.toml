@@ -1,6 +1,6 @@
 [project]
 name = "chardetng_py"
-version = "0.3.3"
+version = "0.3.4"
 requires-python = ">=3.8"
 classifiers = [
     "Programming Language :: Rust",
@@ -16,7 +16,7 @@ changelog = "https://github.com/john-parton/chardetng-py/releases"
 
 [tool.poetry]
 name = "chardetng-py"
-version = "0.3.3"
+version = "0.3.4"
 description = "chardetng Python Module"
 authors = ["John Parton <john.parton.iv@gmail.com>"]
 license = "MIT"
