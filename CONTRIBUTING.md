@@ -37,49 +37,32 @@ Request features on the [Issue Tracker].
 
 ## How to set up your development environment
 
-You need Python 3.7+ and the following tools:
+You need Python 3.8+ and the following tools:
 
-- [Poetry]
-- [Nox]
-- [nox-poetry]
+- [uv]
 
 Install the package with development requirements:
 
 ```console
-$ poetry install
+$ uv install
 ```
 
 You can now run an interactive Python session,
 or the command-line interface:
 
 ```console
-$ poetry run python
-$ poetry run chardetng-py
+$ uv run python
+$ uv run chardetng-py
 ```
 
-[poetry]: https://python-poetry.org/
-[nox]: https://nox.thea.codes/
-[nox-poetry]: https://nox-poetry.readthedocs.io/
+[uv]: https://github.com/astral-sh/uv
 
 ## How to test the project
 
 Run the full test suite:
 
 ```console
-$ nox
-```
-
-List the available Nox sessions:
-
-```console
-$ nox --list-sessions
-```
-
-You can also run a specific Nox session.
-For example, invoke the unit test suite like this:
-
-```console
-$ nox --session=tests
+$ uv run pytest
 ```
 
 Unit tests are located in the _tests_ directory,

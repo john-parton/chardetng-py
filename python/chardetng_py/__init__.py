@@ -15,6 +15,6 @@ from chardetng_py.shortcuts import detect
 # in lib.rs
 
 __all__: Final[list[str]] = [
-    "detect",
     "EncodingDetector",
+    "detect",
 ]

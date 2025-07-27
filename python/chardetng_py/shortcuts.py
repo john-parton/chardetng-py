@@ -36,6 +36,7 @@ def detect(
     -------
     :code:`str`
     The encoding of :code:`byte_str`, suitable for use with :code:`str.decode`.
+
     """
     encoding_detector = EncodingDetector()
     encoding_detector.feed(byte_str, last=True)

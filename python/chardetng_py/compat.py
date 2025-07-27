@@ -37,6 +37,7 @@ def detect(byte_str: bytes | bytearray) -> ResultDict:
     ----------
     byte_str : :code:`bytes` or :code:`bytearray`
         Input buffer to detect the encoding of.
+
     """
     encoding_detector = EncodingDetector()
     encoding_detector.feed(byte_str, last=True)

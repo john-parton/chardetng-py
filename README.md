@@ -9,7 +9,6 @@
 [![Tests](https://github.com/john-parton/chardetng-py/workflows/Tests/badge.svg)][tests]
 
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)][pre-commit]
-[![Black](https://img.shields.io/badge/code%20style-black-000000.svg)][black]
 
 [pypi_]: https://pypi.org/project/chardetng-py/
 [status]: https://pypi.org/project/chardetng-py/
@@ -50,10 +49,10 @@ You can install `chardetng_py` via [pip] from [PyPI]:
 $ pip install chardetng-py
 ```
 
-Or via poetry:
+Or via `uv`:
 
 ```console
-$ poetry add chardetng-py
+$ uv add chardetng-py
 ```
 
 ## Quick Start
