@@ -5,7 +5,7 @@ chardetng_py
 
 |Read the documentation at https://chardetng-py.readthedocs.io/| |Tests|
 
-|pre-commit| |Black|
+|pre-commit|
 
 Features
 --------
@@ -24,11 +24,11 @@ You can install ``chardetng_py`` via `pip <https://pip.pypa.io/>`__ from
 
    $ pip install chardetng-py
 
-Or via poetry:
+Or via ``uv``:
 
 .. code:: console
 
-   $ poetry add chardetng-py
+   $ uv add chardetng-py
 
 Quick Start
 -----------
@@ -92,8 +92,6 @@ Credits
    :target: https://github.com/john-parton/chardetng-py/actions?workflow=Tests
 .. |pre-commit| image:: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white
    :target: https://github.com/pre-commit/pre-commit
-.. |Black| image:: https://img.shields.io/badge/code%20style-black-000000.svg
-   :target: https://github.com/psf/black
 
 .. toctree::
     :maxdepth: 0

@@ -1,9 +1,8 @@
-# noqa: D100
 import typing
 
 Buffer: typing.TypeAlias = bytes | bytearray
 
-class EncodingDetector:  # noqa: D101
+class EncodingDetector:
     def feed(
         self: typing.Self,
         buffer: Buffer,

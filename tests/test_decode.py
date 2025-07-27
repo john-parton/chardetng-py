@@ -1,4 +1,5 @@
 """Test cases for the chardetng_py module."""
+
 import pytest
 from chardetng_py import detect
 

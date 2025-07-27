@@ -39,7 +39,7 @@ Request features on the [Issue Tracker].
 
 You need Python 3.7+ and the following tools:
 
-- [Poetry]
+- [uv]
 - [Nox]
 - [nox-poetry]
 
