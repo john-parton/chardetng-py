@@ -1,4 +1,4 @@
-furo==2025.7.19
+furo==2025.9.25
 sphinx==8.0.2
 numpydoc==1.9.0
 sphinx_toolbox
